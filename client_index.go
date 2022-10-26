@@ -13,8 +13,8 @@ func (c *Client) GetIndex(uid string) (resp *Index, err error) {
 	return newIndex(c, uid).FetchInfo()
 }
 
-func (c *Client) GetRawIndex(uid string) (resp map[string]interface{}, err error) {
-	resp = map[string]interface{}{}
+func (c *Client) GetRawIndex(uid string) (resp Unknown, err error) {
+	resp = Unknown{}
 	req := internalRequest{
 		endpoint:            "/indexes/" + uid,
 		method:              http.MethodGet,
@@ -73,8 +73,8 @@ func (c *Client) GetIndexes(param *IndexesQuery) (resp *IndexesResults, err erro
 	return resp, nil
 }
 
-func (c *Client) GetRawIndexes(param *IndexesQuery) (resp map[string]interface{}, err error) {
-	resp = map[string]interface{}{}
+func (c *Client) GetRawIndexes(param *IndexesQuery) (resp Unknown, err error) {
+	resp = Unknown{}
 	req := internalRequest{
 		endpoint:            "/indexes",
 		method:              http.MethodGet,

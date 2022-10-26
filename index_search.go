@@ -14,7 +14,7 @@ const (
 func (i Index) Search(query string, request *SearchRequest) (*SearchResponse, error) {
 	resp := &SearchResponse{}
 
-	searchPostRequestParams := make(map[string]interface{}, 14)
+	searchPostRequestParams := make(Unknown, 14)
 
 	if request.Limit == 0 {
 		request.Limit = DefaultLimit

@@ -36,9 +36,9 @@ type WaitParams struct {
 type ClientInterface interface {
 	Index(uid string) *Index
 	GetIndex(indexID string) (resp *Index, err error)
-	GetRawIndex(uid string) (resp map[string]interface{}, err error)
+	GetRawIndex(uid string) (resp Unknown, err error)
 	GetIndexes(param *IndexesQuery) (resp *IndexesResults, err error)
-	GetRawIndexes(param *IndexesQuery) (resp map[string]interface{}, err error)
+	GetRawIndexes(param *IndexesQuery) (resp Unknown, err error)
 	CreateIndex(config *IndexConfig) (resp *TaskInfo, err error)
 	DeleteIndex(uid string) (resp *TaskInfo, err error)
 	CreateKey(request *Key) (resp *Key, err error)
@@ -55,7 +55,7 @@ type ClientInterface interface {
 	GetTask(taskUID int64) (resp *Task, err error)
 	GetTasks(param *TasksQuery) (resp *TaskResult, err error)
 	WaitForTask(taskUID int64, options ...WaitParams) (*Task, error)
-	GenerateTenantToken(APIKeyUID string, searchRules map[string]interface{}, options *TenantTokenOptions) (resp string, err error)
+	GenerateTenantToken(APIKeyUID string, searchRules Unknown, options *TenantTokenOptions) (resp string, err error)
 }
 
 var _ ClientInterface = &Client{}
@@ -337,7 +337,7 @@ func (c *Client) WaitForTask(taskUID int64, options ...WaitParams) (*Task, error
 // accessible indexes for the signing API Key.
 // ExpiresAt options is a time.Time when the key will expire. Note that if an ExpiresAt value is included it should be in UTC time.
 // ApiKey options is the API key parent of the token. If you leave it empty the client API Key will be used.
-func (c *Client) GenerateTenantToken(APIKeyUID string, SearchRules map[string]interface{}, Options *TenantTokenOptions) (resp string, err error) {
+func (c *Client) GenerateTenantToken(APIKeyUID string, SearchRules Unknown, Options *TenantTokenOptions) (resp string, err error) {
 	// Validate the arguments
 	if SearchRules == nil {
 		return "", fmt.Errorf("GenerateTenantToken: The search rules added in the token generation must be of type array or object")

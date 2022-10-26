@@ -31,7 +31,7 @@ get_documents_1: |-
     Limit: 2,
   }, &a)
 add_or_replace_documents_1: |-
-  documents := []map[string]interface{}{
+  documents := []Unknown{
     {
       "id":           287947,
       "title":        "Shazam",
@@ -42,7 +42,7 @@ add_or_replace_documents_1: |-
   }
   client.Index("movies").AddDocuments(documents)
 add_or_update_documents_1: |-
-  documents := []map[string]interface{}{
+  documents := []Unknown{
     {
       "id":     287947,
       "title":  "Shazam ⚡️",
@@ -237,7 +237,7 @@ getting_started_typo_tolerance: |-
       OneTypo: 4,
     },
   })
-get_typo_tolerance_1:
+get_typo_tolerance_1: 
   client.Index("books").GetTypoTolerance()
 update_typo_tolerance_1: |-
   client.Index("books").UpdateTypoTolerance(&meilisearch.TypoTolerance{
@@ -249,7 +249,7 @@ update_typo_tolerance_1: |-
   })
 reset_typo_tolerance_1: |-
   client.Index("books").ResetTypoTolerance()
-get_pagination_settings_1:
+get_pagination_settings_1: 
   client.Index("books").GetPagination()
 update_pagination_settings_1: |-
   client.Index("books").UpdatePagination(&meilisearch.Pagination{
@@ -257,7 +257,7 @@ update_pagination_settings_1: |-
   })
 reset_pagination_settings_1: |-
   client.Index("books").ResetPagination()
-get_faceting_settings_1:
+get_faceting_settings_1: 
   client.Index("books").GetFaceting()
 update_faceting_settings_1: |-
   client.Index("books").UpdateFaceting(&meilisearch.Faceting{
@@ -464,7 +464,7 @@ landing_getting_started_1: |-
     APIKey: "masterKey",
   })
 
-  documents := []map[string]interface{}{
+  documents := []Unknown{
     { "id": 1, "title": "Carol" },
     { "id": 2, "title": "Wonder Woman" },
     { "id": 3, "title": "Life of Pi" },
@@ -474,7 +474,7 @@ landing_getting_started_1: |-
   }
   client.Index("movies").AddDocuments(documents)
 documents_guide_add_movie_1: |-
-  documents := []map[string]interface{}{
+  documents := []Unknown{
     {
       "movie_id": "123sq178",
       "title":    "Amelie Poulain",
@@ -508,7 +508,7 @@ getting_started_add_documents_md: |-
     defer jsonFile.Close()
 
     byteValue, _ := ioutil.ReadAll(jsonFile)
-    var movies []map[string]interface{}
+    var movies []Unknown
     json.Unmarshal(byteValue, &movies)
 
     _, err := client.Index("movies").AddDocuments(movies)
@@ -527,18 +527,18 @@ getting_started_search_md: |-
 
   [About this SDK](https://github.com/meilisearch/meilisearch-go/)
 getting_started_add_meteorites: |-
-    client := meilisearch.NewClient(meilisearch.ClientConfig{
-      Host: "http://localhost:7700",
-    })
+  client := meilisearch.NewClient(meilisearch.ClientConfig{
+    Host: "http://localhost:7700",
+  })
 
-    jsonFile, _ := os.Open("meteorites.json")
-    defer jsonFile.Close()
+  jsonFile, _ := os.Open("meteorites.json")
+  defer jsonFile.Close()
 
-    byteValue, _ := ioutil.ReadAll(jsonFile)
-    var meteorites []map[string]interface{}
-    json.Unmarshal(byteValue, &meteorites)
+  byteValue, _ := ioutil.ReadAll(jsonFile)
+  var meteorites []Unknown
+  json.Unmarshal(byteValue, &meteorites)
 
-    client.Index("meteorites").AddDocuments(meteorites)
+  client.Index("meteorites").AddDocuments(meteorites)
 getting_started_update_ranking_rules: |-
   rankingRules := []string{
     "exactness",
@@ -712,7 +712,7 @@ primary_field_guide_create_index_primary_key: |-
     PrimaryKey: "reference_number",
   })
 primary_field_guide_add_document_primary_key: |-
-  documents := []map[string]interface{}{
+  documents := []Unknown{
     {
       "reference_number": 287947,
       "title":            "Diary of a Wimpy Kid",
@@ -770,7 +770,7 @@ authorization_header_1: |-
   })
   client.GetKeys(nil);
 tenant_token_guide_generate_sdk_1: |-
-  searchRules := map[string]interface{}{
+  searchRules := Unknown{
     "patient_medical_records": map[string]string{
       "filter": "user_id = 1",
     },

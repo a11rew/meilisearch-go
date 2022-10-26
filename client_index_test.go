@@ -408,7 +408,7 @@ func TestClient_GetRawIndexes(t *testing.T) {
 		name     string
 		client   *Client
 		args     args
-		wantResp map[string]interface{}
+		wantResp Unknown
 	}{
 		{
 			name:   "TestGetRawIndexesOnNoIndexes",
@@ -417,7 +417,7 @@ func TestClient_GetRawIndexes(t *testing.T) {
 				uid:     []string{},
 				request: nil,
 			},
-			wantResp: map[string]interface{}{
+			wantResp: Unknown{
 				"results": []map[string]string{},
 				"offset":  float64(0),
 				"limit":   float64(20),
@@ -431,7 +431,7 @@ func TestClient_GetRawIndexes(t *testing.T) {
 				uid:     []string{"TestBasicGetRawIndexes"},
 				request: nil,
 			},
-			wantResp: map[string]interface{}{
+			wantResp: Unknown{
 				"results": []map[string]string{
 					{
 						"uid": "TestBasicGetRawIndexes",
@@ -449,7 +449,7 @@ func TestClient_GetRawIndexes(t *testing.T) {
 				uid:     []string{"TestGetRawIndexesWithCustomClient"},
 				request: nil,
 			},
-			wantResp: map[string]interface{}{
+			wantResp: Unknown{
 				"results": []map[string]string{
 					{
 						"uid": "TestGetRawIndexesWithCustomClient",
@@ -471,7 +471,7 @@ func TestClient_GetRawIndexes(t *testing.T) {
 				},
 				request: nil,
 			},
-			wantResp: map[string]interface{}{
+			wantResp: Unknown{
 				"results": []map[string]string{
 					{
 						"uid": "TestGetRawIndexesOnMultipleIndex_1",
@@ -499,7 +499,7 @@ func TestClient_GetRawIndexes(t *testing.T) {
 				},
 				request: nil,
 			},
-			wantResp: map[string]interface{}{
+			wantResp: Unknown{
 				"results": []map[string]string{
 					{
 						"uid":        "TestGetRawIndexesOnMultipleIndex_1",
@@ -532,8 +532,8 @@ func TestClient_GetRawIndexes(t *testing.T) {
 					Limit: 1,
 				},
 			},
-			wantResp: map[string]interface{}{
-				"results": []map[string]interface{}{
+			wantResp: Unknown{
+				"results": []Unknown{
 					{
 						"uid": "TestGetIndexesWithLimit_1",
 					},
@@ -660,7 +660,7 @@ func TestClient_GetRawIndex(t *testing.T) {
 		name     string
 		client   *Client
 		args     args
-		wantResp map[string]interface{}
+		wantResp Unknown
 	}{
 		{
 			name:   "TestBasicGetRawIndex",
@@ -671,7 +671,7 @@ func TestClient_GetRawIndex(t *testing.T) {
 				},
 				uid: "TestBasicGetRawIndex",
 			},
-			wantResp: map[string]interface{}{
+			wantResp: Unknown{
 				"uid": string("TestBasicGetRawIndex"),
 			},
 		},
@@ -684,7 +684,7 @@ func TestClient_GetRawIndex(t *testing.T) {
 				},
 				uid: "TestGetRawIndexWithCustomClient",
 			},
-			wantResp: map[string]interface{}{
+			wantResp: Unknown{
 				"uid": string("TestGetRawIndexWithCustomClient"),
 			},
 		},
@@ -698,7 +698,7 @@ func TestClient_GetRawIndex(t *testing.T) {
 				},
 				uid: "TestGetRawIndexWithPrimaryKey",
 			},
-			wantResp: map[string]interface{}{
+			wantResp: Unknown{
 				"uid":        string("TestGetRawIndexWithPrimaryKey"),
 				"primaryKey": "PrimaryKey",
 			},

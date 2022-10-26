@@ -104,7 +104,7 @@ type Error struct {
 
 // Error return a well human formatted message.
 func (e Error) Error() string {
-	message := namedSprintf(e.rawMessage, map[string]interface{}{
+	message := namedSprintf(e.rawMessage, Unknown{
 		"endpoint":           e.Endpoint,
 		"method":             e.Method,
 		"function":           e.Function,
@@ -148,7 +148,7 @@ func (e *Error) ErrorBody(body []byte) {
 	}
 }
 
-func namedSprintf(format string, params map[string]interface{}) string {
+func namedSprintf(format string, params Unknown) string {
 	for key, val := range params {
 		format = strings.ReplaceAll(format, "${"+key+"}", fmt.Sprintf("%v", val))
 	}

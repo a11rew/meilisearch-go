@@ -34,7 +34,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 			args: args{
 				UID:    "TestIndexBasicAddDocuments",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"ID": "123", "Name": "Pride and Prejudice"},
 				},
 			},
@@ -45,7 +45,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"ID": "123", "Name": "Pride and Prejudice"},
 					},
 					Limit:  3,
@@ -59,7 +59,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 			args: args{
 				UID:    "TestIndexAddDocumentsWithCustomClient",
 				client: customClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"ID": "123", "Name": "Pride and Prejudice"},
 				},
 			},
@@ -70,7 +70,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"ID": "123", "Name": "Pride and Prejudice"},
 					},
 					Limit:  3,
@@ -84,7 +84,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 			args: args{
 				UID:    "TestIndexMultipleAddDocuments",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"ID": "1", "Name": "Alice In Wonderland"},
 					{"ID": "123", "Name": "Pride and Prejudice"},
 					{"ID": "456", "Name": "Le Petit Prince"},
@@ -97,7 +97,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"ID": "1", "Name": "Alice In Wonderland"},
 						{"ID": "123", "Name": "Pride and Prejudice"},
 						{"ID": "456", "Name": "Le Petit Prince"},
@@ -113,7 +113,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 			args: args{
 				UID:    "TestIndexBasicAddDocumentsWithIntID",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"BookID": float64(123), "Title": "Pride and Prejudice"},
 				},
 			},
@@ -124,7 +124,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"BookID": float64(123), "Title": "Pride and Prejudice"},
 					},
 					Limit:  3,
@@ -138,7 +138,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 			args: args{
 				UID:    "TestIndexAddDocumentsWithIntIDWithCustomClient",
 				client: customClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"BookID": float64(123), "Title": "Pride and Prejudice"},
 				},
 			},
@@ -149,7 +149,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"BookID": float64(123), "Title": "Pride and Prejudice"},
 					},
 					Limit:  3,
@@ -163,7 +163,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 			args: args{
 				UID:    "TestIndexMultipleAddDocumentsWithIntID",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"BookID": float64(1), "Title": "Alice In Wonderland"},
 					{"BookID": float64(123), "Title": "Pride and Prejudice"},
 					{"BookID": float64(456), "Title": "Le Petit Prince", "Tag": "Conte"},
@@ -176,7 +176,7 @@ func TestIndex_AddDocuments(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"BookID": float64(1), "Title": "Alice In Wonderland"},
 						{"BookID": float64(123), "Title": "Pride and Prejudice"},
 						{"BookID": float64(456), "Title": "Le Petit Prince", "Tag": "Conte"},
@@ -235,7 +235,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 			args: args{
 				UID:    "TestIndexBasicAddDocumentsWithPrimaryKey",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"key": "123", "Name": "Pride and Prejudice"},
 				},
 				primaryKey: "key",
@@ -247,7 +247,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"key": "123", "Name": "Pride and Prejudice"},
 					},
 					Limit:  3,
@@ -261,7 +261,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 			args: args{
 				UID:    "TestIndexAddDocumentsWithPrimaryKeyWithCustomClient",
 				client: customClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"key": "123", "Name": "Pride and Prejudice"},
 				},
 				primaryKey: "key",
@@ -273,7 +273,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"key": "123", "Name": "Pride and Prejudice"},
 					},
 					Limit:  3,
@@ -287,7 +287,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 			args: args{
 				UID:    "TestIndexMultipleAddDocumentsWithPrimaryKey",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"key": "1", "Name": "Alice In Wonderland"},
 					{"key": "123", "Name": "Pride and Prejudice"},
 					{"key": "456", "Name": "Le Petit Prince"},
@@ -301,7 +301,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"key": "1", "Name": "Alice In Wonderland"},
 						{"key": "123", "Name": "Pride and Prejudice"},
 						{"key": "456", "Name": "Le Petit Prince"},
@@ -317,7 +317,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 			args: args{
 				UID:    "TestIndexAddDocumentsWithPrimaryKeyWithIntID",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"key": float64(123), "Name": "Pride and Prejudice"},
 				},
 				primaryKey: "key",
@@ -329,7 +329,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"key": float64(123), "Name": "Pride and Prejudice"},
 					},
 					Limit:  3,
@@ -343,7 +343,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 			args: args{
 				UID:    "TestIndexMultipleAddDocumentsWithPrimaryKeyWithIntID",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"key": float64(1), "Name": "Alice In Wonderland"},
 					{"key": float64(123), "Name": "Pride and Prejudice"},
 					{"key": float64(456), "Name": "Le Petit Prince"},
@@ -357,7 +357,7 @@ func TestIndex_AddDocumentsWithPrimaryKey(t *testing.T) {
 					Type:    "documentAdditionOrUpdate",
 				},
 				documentsRes: DocumentsResult{
-					Results: []map[string]interface{}{
+					Results: []Unknown{
 						{"key": float64(1), "Name": "Alice In Wonderland"},
 						{"key": float64(123), "Name": "Pride and Prejudice"},
 						{"key": float64(456), "Name": "Le Petit Prince"},
@@ -420,7 +420,7 @@ func TestIndex_AddDocumentsInBatches(t *testing.T) {
 			args: argsNoKey{
 				UID:    "TestIndexBasicAddDocumentsInBatches",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"ID": "122", "Name": "Pride and Prejudice"},
 					{"ID": "123", "Name": "Pride and Prejudica"},
 					{"ID": "124", "Name": "Pride and Prejudicb"},
@@ -454,7 +454,7 @@ func TestIndex_AddDocumentsInBatches(t *testing.T) {
 			args: argsWithKey{
 				UID:    "TestIndexBasicAddDocumentsInBatchesWithKey",
 				client: defaultClient,
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"ID": "122", "Name": "Pride and Prejudice"},
 					{"ID": "123", "Name": "Pride and Prejudica"},
 					{"ID": "124", "Name": "Pride and Prejudicb"},
@@ -537,9 +537,9 @@ func TestIndex_AddDocumentsInBatches(t *testing.T) {
 	}
 }
 
-func testParseCsvDocuments(t *testing.T, documents io.Reader) []map[string]interface{} {
+func testParseCsvDocuments(t *testing.T, documents io.Reader) []Unknown {
 	var (
-		docs   []map[string]interface{}
+		docs   []Unknown
 		header []string
 	)
 	r := csv.NewReader(documents)
@@ -553,7 +553,7 @@ func testParseCsvDocuments(t *testing.T, documents io.Reader) []map[string]inter
 			header = record
 			continue
 		}
-		doc := make(map[string]interface{})
+		doc := make(Unknown)
 		for i, key := range header {
 			doc[key] = record[i]
 		}
@@ -749,15 +749,15 @@ func TestIndex_AddDocumentsCsvInBatches(t *testing.T) {
 	}
 }
 
-func testParseNdjsonDocuments(t *testing.T, documents io.Reader) []map[string]interface{} {
-	var docs []map[string]interface{}
+func testParseNdjsonDocuments(t *testing.T, documents io.Reader) []Unknown {
+	var docs []Unknown
 	scanner := bufio.NewScanner(documents)
 	for scanner.Scan() {
 		line := strings.TrimSpace(scanner.Text())
 		if line == "" {
 			continue
 		}
-		doc := make(map[string]interface{})
+		doc := make(Unknown)
 		err := json.Unmarshal([]byte(line), &doc)
 		require.NoError(t, err)
 		docs = append(docs, doc)
@@ -1030,7 +1030,7 @@ func TestIndex_DeleteOneDocument(t *testing.T) {
 				UID:        "1",
 				client:     defaultClient,
 				identifier: "123",
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"ID": "123", "Name": "Pride and Prejudice"},
 				},
 			},
@@ -1046,7 +1046,7 @@ func TestIndex_DeleteOneDocument(t *testing.T) {
 				UID:        "2",
 				client:     customClient,
 				identifier: "123",
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"ID": "123", "Name": "Pride and Prejudice"},
 				},
 			},
@@ -1062,7 +1062,7 @@ func TestIndex_DeleteOneDocument(t *testing.T) {
 				UID:        "3",
 				client:     defaultClient,
 				identifier: "456",
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"ID": "123", "Name": "Pride and Prejudice"},
 					{"ID": "456", "Name": "Le Petit Prince"},
 					{"ID": "1", "Name": "Alice In Wonderland"},
@@ -1080,7 +1080,7 @@ func TestIndex_DeleteOneDocument(t *testing.T) {
 				UID:        "4",
 				client:     defaultClient,
 				identifier: "123",
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"BookID": 123, "Title": "Pride and Prejudice"},
 				},
 			},
@@ -1096,7 +1096,7 @@ func TestIndex_DeleteOneDocument(t *testing.T) {
 				UID:        "5",
 				client:     customClient,
 				identifier: "123",
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"BookID": 123, "Title": "Pride and Prejudice"},
 				},
 			},
@@ -1112,7 +1112,7 @@ func TestIndex_DeleteOneDocument(t *testing.T) {
 				UID:        "6",
 				client:     defaultClient,
 				identifier: "456",
-				documentsPtr: []map[string]interface{}{
+				documentsPtr: []Unknown{
 					{"BookID": 123, "Title": "Pride and Prejudice"},
 					{"BookID": 456, "Title": "Le Petit Prince"},
 					{"BookID": 1, "Title": "Alice In Wonderland"},
@@ -1146,7 +1146,7 @@ func TestIndex_DeleteOneDocument(t *testing.T) {
 
 			testWaitForTask(t, i, gotResp)
 
-			var document []map[string]interface{}
+			var document []Unknown
 			err = i.GetDocument(tt.args.identifier, nil, &document)
 			require.Error(t, err)
 			require.Empty(t, document)

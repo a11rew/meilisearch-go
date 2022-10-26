@@ -982,7 +982,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 		IndexUID    string
 		client      *Client
 		APIKeyUID   string
-		searchRules map[string]interface{}
+		searchRules Unknown
 		options     *TenantTokenOptions
 		filter      []string
 	}
@@ -998,7 +998,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "TestDefaultGenerateTenantToken",
 				client:    privateClient,
 				APIKeyUID: GetPrivateUIDKey(),
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{},
 				},
 				options: nil,
@@ -1013,7 +1013,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "TestGenerateTenantTokenWithApiKey",
 				client:    defaultClient,
 				APIKeyUID: GetPrivateUIDKey(),
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{},
 				},
 				options: &TenantTokenOptions{
@@ -1030,7 +1030,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "TestGenerateTenantTokenWithOnlyExpiresAt",
 				client:    privateClient,
 				APIKeyUID: GetPrivateUIDKey(),
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{},
 				},
 				options: &TenantTokenOptions{
@@ -1047,7 +1047,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "TestGenerateTenantTokenWithApiKeyAndExpiresAt",
 				client:    defaultClient,
 				APIKeyUID: GetPrivateUIDKey(),
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{},
 				},
 				options: &TenantTokenOptions{
@@ -1065,7 +1065,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "indexUID",
 				client:    privateClient,
 				APIKeyUID: GetPrivateUIDKey(),
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{
 						"filter": "book_id > 1000",
 					},
@@ -1084,7 +1084,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "indexUID",
 				client:    privateClient,
 				APIKeyUID: GetPrivateUIDKey(),
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"indexUID": map[string]string{
 						"filter": "year > 2000",
 					},
@@ -1119,7 +1119,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 					APIKey: "",
 				}),
 				APIKeyUID: GetPrivateUIDKey(),
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{},
 				},
 				options: nil,
@@ -1134,7 +1134,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "TestGenerateTenantTokenWithBadExpiresAt",
 				client:    defaultClient,
 				APIKeyUID: GetPrivateUIDKey(),
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{},
 				},
 				options: &TenantTokenOptions{
@@ -1151,7 +1151,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "TestGenerateTenantTokenWithBadAPIKeyUID",
 				client:    defaultClient,
 				APIKeyUID: GetPrivateUIDKey() + "1234",
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{},
 				},
 				options: nil,
@@ -1166,7 +1166,7 @@ func TestClient_GenerateTenantToken(t *testing.T) {
 				IndexUID:  "TestGenerateTenantTokenWithEmptyAPIKeyUID",
 				client:    defaultClient,
 				APIKeyUID: "",
-				searchRules: map[string]interface{}{
+				searchRules: Unknown{
 					"*": map[string]string{},
 				},
 				options: nil,

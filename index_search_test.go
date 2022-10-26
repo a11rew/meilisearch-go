@@ -29,10 +29,10 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
-					map[string]interface{}{
+					Unknown{
 						"Tag": "Epic fantasy", "book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -51,10 +51,10 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
-					map[string]interface{}{
+					Unknown{
 						"Tag": "Epic fantasy", "book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -75,7 +75,7 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
 				},
@@ -96,7 +96,7 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(123), "title": "Pride and Prejudice",
 					},
 				},
@@ -117,7 +117,7 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -138,10 +138,10 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -163,9 +163,9 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(42), "title": "The Hitchhiker's Guide to the Galaxy",
-						"_formatted": map[string]interface{}{
+						"_formatted": Unknown{
 							"book_id": "42", "tag": "Epic fantasy", "title": "…Guide to…", "year": "1978",
 						},
 					},
@@ -189,9 +189,9 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(42), "title": "The Hitchhiker's Guide to the Galaxy",
-						"_formatted": map[string]interface{}{
+						"_formatted": Unknown{
 							"book_id": "42", "tag": "Epic fantasy", "title": "(ꈍᴗꈍ)Guide to(ꈍᴗꈍ)", "year": "1978",
 						},
 					},
@@ -214,9 +214,9 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
-						"_formatted": map[string]interface{}{
+						"_formatted": Unknown{
 							"book_id": "456", "tag": "Tale", "title": "Le Petit <em>Prince</em>", "year": "1943",
 						},
 					},
@@ -241,9 +241,9 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
-						"_formatted": map[string]interface{}{
+						"_formatted": Unknown{
 							"book_id": "456", "tag": "Tale", "title": "Le Petit (⊃｡•́‿•̀｡)⊃ Prince ⊂(´• ω •`⊂)", "year": "1943",
 						},
 					},
@@ -265,16 +265,16 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(123), "title": "Pride and Prejudice",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(730), "title": "War and Peace",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(1032), "title": "Crime and Punishment",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -293,7 +293,7 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -316,7 +316,7 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
 				},
@@ -339,10 +339,10 @@ func TestIndex_Search(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -363,11 +363,11 @@ func TestIndex_Search(t *testing.T) {
 			require.NoError(t, err)
 			require.Equal(t, len(tt.want.Hits), len(got.Hits))
 			for len := range got.Hits {
-				require.Equal(t, tt.want.Hits[len].(map[string]interface{})["title"], got.Hits[len].(map[string]interface{})["title"])
-				require.Equal(t, tt.want.Hits[len].(map[string]interface{})["book_id"], got.Hits[len].(map[string]interface{})["book_id"])
+				require.Equal(t, tt.want.Hits[len].(Unknown)["title"], got.Hits[len].(Unknown)["title"])
+				require.Equal(t, tt.want.Hits[len].(Unknown)["book_id"], got.Hits[len].(Unknown)["book_id"])
 			}
-			if tt.want.Hits[0].(map[string]interface{})["_formatted"] != nil {
-				require.Equal(t, tt.want.Hits[0].(map[string]interface{})["_formatted"], got.Hits[0].(map[string]interface{})["_formatted"])
+			if tt.want.Hits[0].(Unknown)["_formatted"] != nil {
+				require.Equal(t, tt.want.Hits[0].(Unknown)["_formatted"], got.Hits[0].(Unknown)["_formatted"])
 			}
 			require.Equal(t, tt.want.EstimatedTotalHits, got.EstimatedTotalHits)
 			require.Equal(t, tt.want.Offset, got.Offset)
@@ -404,19 +404,19 @@ func TestIndex_SearchFacets(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
 				EstimatedTotalHits: 2,
 				Offset:             0,
 				Limit:              20,
-				FacetDistribution: map[string]interface{}(
-					map[string]interface{}{
-						"tag": map[string]interface{}{
+				FacetDistribution: Unknown(
+					Unknown{
+						"tag": Unknown{
 							"Epic fantasy": float64(1),
 							"Tale":         float64(1),
 						},
@@ -436,19 +436,19 @@ func TestIndex_SearchFacets(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
 				EstimatedTotalHits: 2,
 				Offset:             0,
 				Limit:              20,
-				FacetDistribution: map[string]interface{}(
-					map[string]interface{}{
-						"tag": map[string]interface{}{
+				FacetDistribution: Unknown(
+					Unknown{
+						"tag": Unknown{
 							"Epic fantasy": float64(1),
 							"Tale":         float64(1),
 						},
@@ -472,8 +472,8 @@ func TestIndex_SearchFacets(t *testing.T) {
 			require.Equal(t, len(tt.want.Hits), len(got.Hits))
 
 			for len := range got.Hits {
-				require.Equal(t, tt.want.Hits[len].(map[string]interface{})["title"], got.Hits[len].(map[string]interface{})["title"])
-				require.Equal(t, tt.want.Hits[len].(map[string]interface{})["book_id"], got.Hits[len].(map[string]interface{})["book_id"])
+				require.Equal(t, tt.want.Hits[len].(Unknown)["title"], got.Hits[len].(Unknown)["title"])
+				require.Equal(t, tt.want.Hits[len].(Unknown)["book_id"], got.Hits[len].(Unknown)["book_id"])
 			}
 			require.Equal(t, tt.want.EstimatedTotalHits, got.EstimatedTotalHits)
 			require.Equal(t, tt.want.Offset, got.Offset)
@@ -512,7 +512,7 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(123), "title": "Pride and Prejudice",
 					},
 				},
@@ -536,7 +536,7 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -562,7 +562,7 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -590,7 +590,7 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(123), "title": "Pride and Prejudice",
 					},
 				},
@@ -615,10 +615,10 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -642,13 +642,13 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(742), "title": "The Great Gatsby",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(17), "title": "In Search of Lost Time",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(204), "title": "Ulysses",
 					},
 				},
@@ -673,7 +673,7 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(1), "title": "Alice In Wonderland",
 					},
 				},
@@ -698,13 +698,13 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(1), "title": "Alice In Wonderland",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -729,7 +729,7 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(456), "title": "Le Petit Prince",
 					},
 				},
@@ -753,7 +753,7 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(1032), "title": "Crime and Punishment",
 					},
 				},
@@ -779,8 +779,8 @@ func TestIndex_SearchWithFilters(t *testing.T) {
 			require.Equal(t, len(tt.want.Hits), len(got.Hits))
 
 			for len := range got.Hits {
-				require.Equal(t, tt.want.Hits[len].(map[string]interface{})["title"], got.Hits[len].(map[string]interface{})["title"])
-				require.Equal(t, tt.want.Hits[len].(map[string]interface{})["book_id"], got.Hits[len].(map[string]interface{})["book_id"])
+				require.Equal(t, tt.want.Hits[len].(Unknown)["title"], got.Hits[len].(Unknown)["title"])
+				require.Equal(t, tt.want.Hits[len].(Unknown)["book_id"], got.Hits[len].(Unknown)["book_id"])
 			}
 			require.Equal(t, tt.want.EstimatedTotalHits, got.EstimatedTotalHits)
 			require.Equal(t, tt.want.Offset, got.Offset)
@@ -821,16 +821,16 @@ func TestIndex_SearchWithSort(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(123), "title": "Pride and Prejudice",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(730), "title": "War and Peace",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(1032), "title": "Crime and Punishment",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -856,16 +856,16 @@ func TestIndex_SearchWithSort(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(1032), "title": "Crime and Punishment",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(123), "title": "Pride and Prejudice",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(730), "title": "War and Peace",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -893,16 +893,16 @@ func TestIndex_SearchWithSort(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(1032), "title": "Crime and Punishment",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(123), "title": "Pride and Prejudice",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(730), "title": "War and Peace",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -930,16 +930,16 @@ func TestIndex_SearchWithSort(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(123), "title": "Pride and Prejudice",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(730), "title": "War and Peace",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(1032), "title": "Crime and Punishment",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(4), "title": "Harry Potter and the Half-Blood Prince",
 					},
 				},
@@ -968,16 +968,16 @@ func TestIndex_SearchWithSort(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(56), "title": "The Divine Comedy",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(32), "title": "The Odyssey",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(69), "title": "Hamlet",
 					},
-					map[string]interface{}{
+					Unknown{
 						"book_id": float64(7), "title": "Don Quixote",
 					},
 				},
@@ -1003,8 +1003,8 @@ func TestIndex_SearchWithSort(t *testing.T) {
 			require.Equal(t, len(tt.want.Hits), len(got.Hits))
 
 			for len := range got.Hits {
-				require.Equal(t, tt.want.Hits[len].(map[string]interface{})["title"], got.Hits[len].(map[string]interface{})["title"])
-				require.Equal(t, tt.want.Hits[len].(map[string]interface{})["book_id"], got.Hits[len].(map[string]interface{})["book_id"])
+				require.Equal(t, tt.want.Hits[len].(Unknown)["title"], got.Hits[len].(Unknown)["title"])
+				require.Equal(t, tt.want.Hits[len].(Unknown)["book_id"], got.Hits[len].(Unknown)["book_id"])
 			}
 			require.Equal(t, tt.want.EstimatedTotalHits, got.EstimatedTotalHits)
 			require.Equal(t, tt.want.Offset, got.Offset)
@@ -1039,9 +1039,9 @@ func TestIndex_SearchOnNestedFileds(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"id": float64(5), "title": "The Hobbit",
-						"info": map[string]interface{}{
+						"info": Unknown{
 							"comment":  "An awesome book",
 							"reviewNb": float64(900),
 						},
@@ -1062,9 +1062,9 @@ func TestIndex_SearchOnNestedFileds(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"id": float64(5), "title": "The Hobbit",
-						"info": map[string]interface{}{
+						"info": Unknown{
 							"comment":  "An awesome book",
 							"reviewNb": float64(900),
 						},
@@ -1085,16 +1085,16 @@ func TestIndex_SearchOnNestedFileds(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"id": float64(2), "title": "Le Petit Prince",
-						"info": map[string]interface{}{
+						"info": Unknown{
 							"comment":  "A french book",
 							"reviewNb": float64(600),
 						},
 					},
-					map[string]interface{}{
+					Unknown{
 						"id": float64(3), "title": "Le Rouge et le Noir",
-						"info": map[string]interface{}{
+						"info": Unknown{
 							"comment":  "Another french book",
 							"reviewNb": float64(700),
 						},
@@ -1118,9 +1118,9 @@ func TestIndex_SearchOnNestedFileds(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"id": float64(5), "title": "The Hobbit",
-						"info": map[string]interface{}{
+						"info": Unknown{
 							"comment":  "An awesome book",
 							"reviewNb": float64(900),
 						},
@@ -1151,9 +1151,9 @@ func TestIndex_SearchOnNestedFileds(t *testing.T) {
 			},
 			want: &SearchResponse{
 				Hits: []interface{}{
-					map[string]interface{}{
+					Unknown{
 						"id": float64(5), "title": "The Hobbit",
-						"info": map[string]interface{}{
+						"info": Unknown{
 							"comment":  "An awesome book",
 							"reviewNb": float64(900),
 						},
