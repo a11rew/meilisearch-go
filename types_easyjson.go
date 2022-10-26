@@ -3666,20 +3666,20 @@ func easyjson6601e8cdDecodeGithubComMeilisearchMeilisearchGo27(in *jlexer.Lexer,
 				in.Delim('[')
 				if out.Results == nil {
 					if !in.IsDelim(']') {
-						out.Results = make([]map[string]interface{}, 0, 8)
+						out.Results = make([]Unknown, 0, 8)
 					} else {
-						out.Results = []map[string]interface{}{}
+						out.Results = []Unknown{}
 					}
 				} else {
 					out.Results = (out.Results)[:0]
 				}
 				for !in.IsDelim(']') {
-					var v82 map[string]interface{}
+					var v82 Unknown
 					if in.IsNull() {
 						in.Skip()
 					} else {
 						in.Delim('{')
-						v82 = make(map[string]interface{})
+						v82 = make(Unknown)
 						for !in.IsDelim('}') {
 							key := string(in.String())
 							in.WantColon()
